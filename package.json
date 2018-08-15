@@ -1,0 +1,23 @@
+{
+  "name": "justachatbot",
+  "version": "1.0.0",
+  "description": "just a discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drrr-devs/JustAChatBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drrr-devs/JustAChatBot/issues"
+  },
+  "homepage": "https://github.com/drrr-devs/JustAChatBot#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "request": "^2.88.0"
+  }
+}
