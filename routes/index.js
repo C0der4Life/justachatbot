@@ -1,9 +1,4 @@
 module.exports = (config) => {
-
-    //const validCommands = ['help', 'giphy', 'recipes', 'ffxiv', 'soundboard'];
-
-
-
     //dependencies to get discord api started
     const Discord = require('discord.js');
     const bot = new Discord.Client();
@@ -27,20 +22,19 @@ module.exports = (config) => {
 
         //verifies that message starts with our prefix. prefix is $ by default
         if (msg.content.startsWith(prefix)) {
+            function fulfillRequest() {
+                return require("./commands/" + command)(msg, request);
+            }
+
             //new message from discord = new request to pull up script from commands folder
             let request = new Request(msg.content);
             let command = request.command;
             let category = request.category;
             let query = request.query;
 
-            function fulfillRequest() {
-                return require("./commands/" + command)(msg, request);
-            }
-
             //error handler. Checks for valid command
-            //if (!request.validateCommand()) {
-            if (false) {
-                return require("./commands/errorhandler")(msg, request);
+            if (!request.validateCommand()) {
+                return require("./commands/errorhandler")(msg, embed);
             }
 
             return fulfillRequest();
